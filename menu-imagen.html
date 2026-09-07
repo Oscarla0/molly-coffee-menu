@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Molly Coffee — Menú (imagen original)</title>
+<meta name="description" content="Menú original de Molly Coffee en imagen, tal como está diseñado.">
+<meta name="theme-color" content="#F9E3DC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Spectral:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F9E3DC;
+  --ink:#1F1A17;
+  --ink-soft:#6B564F;
+  --rule:#D8B4A9;
+  --display:'Archivo Black','Arial Black',system-ui,sans-serif;
+  --body:'Spectral',Georgia,serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);font-size:16px;line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+header{padding:26px 20px 14px;text-align:center}
+.flank{font-family:var(--display);letter-spacing:.34em;font-size:12px;line-height:1}
+h1{
+  font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(1.5rem,7vw,2.1rem);line-height:1;
+  margin:.3em 0 0;
+}
+.hint{
+  margin:14px auto 0;max-width:34ch;
+  font-size:.86rem;font-style:italic;color:var(--ink-soft);
+}
+
+/* ---------- visor ---------- */
+.viewer{
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  padding:0 12px 8px;
+}
+.viewer img{
+  display:block;margin:0 auto;
+  width:100%;height:auto;max-width:1492px;
+  border:1px solid var(--rule);border-radius:10px;
+  background:#fff;
+  cursor:zoom-in;
+}
+.viewer.zoomed{padding-bottom:16px}
+.viewer.zoomed img{
+  width:1492px;max-width:none;
+  cursor:zoom-out;
+}
+
+/* ---------- acciones ---------- */
+.actions{
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+  padding:20px 20px 0;
+}
+.actions a{
+  font-family:var(--display);
+  font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  text-decoration:none;
+  padding:10px 15px;border-radius:999px;
+  border:1px solid var(--ink);color:var(--ink);
+}
+.actions a.primary{background:var(--ink);color:var(--bg)}
+.actions a:hover{background:var(--ink);color:var(--bg)}
+
+footer{
+  margin-top:26px;padding:18px 20px 34px;
+  border-top:1px solid var(--rule);
+  text-align:center;font-size:.8rem;color:var(--ink-soft);
+}
+@media print{
+  header .hint,.actions,footer{display:none}
+  body{background:#fff}
+  .viewer{padding:0;overflow:visible}
+  .viewer img{width:100%;border:0;border-radius:0}
+  @page{size:A4 landscape;margin:8mm}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="flank" aria-hidden="true">• • •</div>
+  <h1>Molly Coffee</h1>
+  <p class="hint">Menú original. Toca la imagen para ampliarla; gira el móvil para verla mejor.</p>
+</header>
+
+<div class="viewer" id="viewer">
+  <picture>
+    <source srcset="assets/menu-molly-coffee.webp" type="image/webp">
+    <img src="assets/menu-molly-coffee.jpg"
+         width="1492" height="1054"
+         alt="Menú de Molly Coffee: cafés, cafés especiales, matcha y bebidas, tostadas de pan de masa madre, suplementos y tabla de alérgenos.">
+  </picture>
+</div>
+
+<nav class="actions" aria-label="Acciones">
+  <a class="primary" href="index.html">Ver el menú en texto</a>
+  <a href="assets/menu-molly-coffee.pdf" download>Descargar el PDF</a>
+</nav>
+
+<footer>
+  <p>La versión en texto se lee mejor en el móvil y permite consultar los alérgenos uno por uno.</p>
+  <p>Molly Coffee</p>
+</footer>
+
+<script>
+/* Toca para alternar entre "ajustado al ancho" y tamaño natural con desplazamiento.
+   Mejora progresiva: sin JS la imagen sigue visible y el pellizco funciona igual. */
+(function () {
+  var viewer = document.getElementById('viewer');
+  var img = viewer.querySelector('img');
+  if (!viewer || !img) return;
+
+  img.addEventListener('click', function () {
+    var wasZoomed = viewer.classList.contains('zoomed');
+    // Guarda el punto tocado en proporción, para volver a centrarlo tras el cambio.
+    var rect = img.getBoundingClientRect();
+    var fx = (viewer.scrollLeft + viewer.clientWidth / 2 - rect.left) / rect.width;
+
+    viewer.classList.toggle('zoomed');
+
+    if (!wasZoomed) {
+      var r2 = img.getBoundingClientRect();
+      viewer.scrollLeft = fx * r2.width - viewer.clientWidth / 2;
+    } else {
+      viewer.scrollLeft = 0;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

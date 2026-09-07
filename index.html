@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Molly Coffee — Menú</title>
+<meta name="description" content="Menú de Molly Coffee: cafés de especialidad, cafés especiales, matcha y bebidas, y tostadas de pan de masa madre. Información de alérgenos incluida.">
+<meta name="theme-color" content="#F9E3DC">
+<meta property="og:title" content="Molly Coffee — Menú">
+<meta property="og:description" content="Cafés, matcha y tostadas de masa madre.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F9E3DC;
+  --card:#FCEFEA;
+  --ink:#1F1A17;
+  --ink-soft:#6B564F;
+  --accent:#8E3A34;
+  --rule:#D8B4A9;
+  --display:'Archivo Black','Arial Black','Helvetica Neue',system-ui,sans-serif;
+  --body:'Spectral',Georgia,'Times New Roman',serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  font-weight:400;
+  font-size:17px;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px 64px}
+
+/* ---------- cabecera ---------- */
+.masthead{padding:34px 0 20px;text-align:center}
+.masthead .flank{
+  font-family:var(--display);
+  letter-spacing:.34em;
+  font-size:15px;
+  color:var(--ink);
+  line-height:1;
+}
+.masthead h1{
+  font-family:var(--display);
+  font-size:clamp(2.1rem,10.5vw,3.1rem);
+  line-height:.98;
+  margin:.22em 0 .1em;
+  letter-spacing:.005em;
+  text-transform:uppercase;
+}
+.masthead p{
+  margin:.7em auto 0;
+  max-width:30ch;
+  font-size:.87rem;
+  font-style:italic;
+  color:var(--ink-soft);
+}
+
+/* ---------- navegación ---------- */
+nav{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+  margin:0 -20px;
+}
+nav ul{
+  display:flex;gap:6px;
+  list-style:none;margin:0;padding:9px 20px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+nav ul::-webkit-scrollbar{display:none}
+nav a{
+  display:block;white-space:nowrap;
+  font-family:var(--display);
+  font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;
+  padding:7px 12px;border-radius:999px;
+  border:1px solid transparent;
+  transition:background .15s,border-color .15s;
+}
+nav a:hover{background:var(--card)}
+nav a[aria-current="true"]{background:var(--ink);color:var(--bg)}
+
+/* ---------- secciones ---------- */
+section{scroll-margin-top:62px;padding-top:38px}
+.sec-title{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin:0 0 4px;
+}
+.sec-title h2{
+  font-family:var(--display);
+  font-size:clamp(1.15rem,5.2vw,1.5rem);
+  text-transform:uppercase;
+  margin:0;letter-spacing:.01em;text-align:center;
+}
+.sec-title .d{
+  font-family:var(--display);letter-spacing:.3em;font-size:11px;
+  flex:0 0 auto;line-height:1;
+}
+.sec-sub{
+  font-family:var(--display);
+  text-align:center;text-transform:uppercase;
+  font-size:.72rem;letter-spacing:.13em;
+  color:var(--ink-soft);
+  margin:0 0 18px;
+}
+.sec-title + .list,.sec-title + .featured{margin-top:20px}
+
+/* ---------- destacados ---------- */
+.featured{
+  display:grid;gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  margin-bottom:26px;
+}
+.featured div{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-radius:14px;
+  padding:14px 16px;
+}
+.featured .fname{
+  display:block;
+  font-size:1.06rem;font-weight:600;
+  border-bottom:1.5px solid var(--ink);
+  padding-bottom:6px;margin-bottom:8px;
+}
+.featured .fprice{font-size:1.22rem;font-weight:600;letter-spacing:.01em}
+
+/* ---------- lista de artículos ---------- */
+.list{list-style:none;margin:0;padding:0}
+.list > li{padding:9px 0;border-bottom:1px dotted var(--rule)}
+.list > li:last-child{border-bottom:0}
+.row{display:flex;align-items:baseline;gap:8px}
+.name{font-weight:400}
+.list.dishes .name{font-weight:600;font-size:1.05rem}
+.leader{
+  flex:1 1 auto;min-width:14px;
+  border-bottom:1px dotted var(--rule);
+  transform:translateY(-4px);
+}
+.price{
+  flex:0 0 auto;font-weight:600;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.desc{
+  margin:3px 0 0;padding-right:64px;
+  font-size:.9rem;font-weight:300;
+  color:var(--ink-soft);
+}
+.dishes .row{flex-wrap:wrap}
+.dishes .leader{display:none}
+.dishes .price{margin-left:auto}
+
+/* ---------- iconos frío / caliente ---------- */
+.ic{
+  width:.92em;height:.92em;
+  vertical-align:-.08em;
+  fill:currentColor;
+  flex:0 0 auto;
+}
+.temps{display:inline-flex;gap:5px;flex:0 0 auto;color:var(--ink)}
+
+/* ---------- insignias de alérgenos ---------- */
+.algs{display:inline-flex;gap:4px;flex:0 0 auto}
+.alg{
+  display:inline-grid;place-items:center;
+  min-width:1.55em;height:1.55em;
+  padding:0 .2em;
+  border:1.3px solid var(--accent);border-radius:999px;
+  color:var(--accent);
+  font-family:var(--display);
+  font-size:.72rem;line-height:1;
+  text-decoration:none;
+  flex:0 0 auto;
+}
+.alg:hover{background:var(--accent);color:var(--card)}
+
+/* ---------- notas / extras ---------- */
+.extras{
+  margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--accent);
+  list-style:none;padding-left:0;
+}
+.extras li{padding:4px 0;font-size:.95rem}
+.extras b{font-weight:600}
+
+/* ---------- suplemento ---------- */
+.boxed{
+  border:1px solid var(--rule);border-radius:16px;
+  background:var(--card);
+  padding:6px 18px 14px;
+  margin-top:6px;
+}
+
+/* ---------- alérgenos ---------- */
+.legend{
+  list-style:none;margin:0;padding:0;
+  display:grid;gap:8px 12px;
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+}
+.legend li{
+  display:flex;align-items:center;gap:9px;
+  font-size:.92rem;
+  padding:5px 7px;border-radius:9px;
+  transition:background .3s;
+}
+.legend li:target{background:#F3C9BC}
+.legend .alg{font-size:.66rem;cursor:default}
+.legal{
+  margin:22px 0 0;font-size:.83rem;font-style:italic;
+  color:var(--ink-soft);
+}
+.legal + .legal{margin-top:8px}
+.alt-link{
+  color:var(--ink);text-decoration:none;
+  border-bottom:1px solid var(--rule);
+  padding-bottom:2px;
+}
+.alt-link:hover{border-bottom-color:var(--ink)}
+
+/* ---------- pie ---------- */
+footer{
+  margin-top:44px;padding-top:22px;
+  border-top:1px solid var(--rule);
+  text-align:center;
+  font-size:.8rem;color:var(--ink-soft);
+}
+footer .flank{
+  font-family:var(--display);letter-spacing:.3em;font-size:11px;
+  color:var(--ink);display:block;margin-bottom:10px;
+}
+
+/* ---------- impresión ---------- */
+@media print{
+  nav{display:none}
+  body{background:#fff;font-size:11pt}
+  .wrap{max-width:none;padding:0}
+  section{padding-top:18pt;break-inside:avoid}
+  .featured div,.boxed{background:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ic-cold" viewBox="0 0 24 24">
+    <path d="M11.1 1h1.8v22h-1.8z"/>
+    <path d="M2.02 6.2l.9-1.56 19.06 11-.9 1.56z"/>
+    <path d="M2.92 19.36l-.9-1.56 19.06-11 .9 1.56z"/>
+    <path d="M12 3.9L8.9 1.6 7.8 3.05 12 6.2l4.2-3.15-1.1-1.45zM12 20.1l-3.1 2.3-1.1-1.45L12 17.8l4.2 3.15-1.1 1.45zM3.3 9.1l-.4-3.8 1.8-.2.3 2.9 2.7-1.1.7 1.66zM20.7 14.9l.4 3.8-1.8.2-.3-2.9-2.7 1.1-.7-1.66zM20.7 9.1l.4-3.8-1.8-.2-.3 2.9-2.7-1.1-.7 1.66zM3.3 14.9l-.4 3.8 1.8.2.3-2.9 2.7 1.1.7-1.66z"/>
+  </symbol>
+  <symbol id="ic-hot" viewBox="0 0 24 24">
+    <path d="M12 1.8c-1 3.6-3.4 5-5.3 7.5C5 11.4 4.2 13.4 4.2 15.4 4.2 19.6 7.7 23 12 23s7.8-3.4 7.8-7.6c0-2.4-1.2-4.3-2.6-6-.2 1.3-.9 2.2-1.9 2.6 1-3.4-.6-6.6-3.3-10.2z"/>
+  </symbol>
+</svg>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="flank" aria-hidden="true">• • •</div>
+    <h1>Molly Coffee</h1>
+    <div class="flank" aria-hidden="true">• • •</div>
+    <p>Cafés · Matcha · Tostadas de pan de masa madre</p>
+  </header>
+
+  <nav aria-label="Secciones del menú">
+    <ul>
+      <li><a href="#cafes">Cafés</a></li>
+      <li><a href="#especiales">Especiales</a></li>
+      <li><a href="#matcha">Matcha</a></li>
+      <li><a href="#tostadas">Tostadas</a></li>
+      <li><a href="#suplemento">Suplemento</a></li>
+      <li><a href="#otros">Otros</a></li>
+      <li><a href="#alergenos">Alérgenos</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+  <!-- ============ CAFÉS ============ -->
+  <section id="cafes" aria-labelledby="h-cafes">
+    <div class="sec-title"><span class="d" aria-hidden="true">•••</span><h2 id="h-cafes">Cafés</h2><span class="d" aria-hidden="true">•••</span></div>
+
+    <div class="featured">
+      <div><span class="fname">Americano</span><span class="fprice">2,60 €</span></div>
+      <div><span class="fname">Iced Latte</span><span class="fprice">3,50 €</span></div>
+    </div>
+
+    <ul class="list">
+      <li><div class="row"><span class="name">Espresso</span><span class="leader"></span><span class="price">2,20 €</span></div></li>
+      <li><div class="row"><span class="name">Cortado</span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">2,50 €</span></div></li>
+      <li><div class="row"><span class="name">Latte</span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">2,70 € / 3,50 €</span></div></li>
+      <li><div class="row"><span class="name">Cappucino</span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">2,70 €</span></div></li>
+      <li><div class="row"><span class="name">Flat white</span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">3,00 €</span></div></li>
+      <li><div class="row"><span class="name">Filtro V60</span><span class="leader"></span><span class="price">6,00 €</span></div></li>
+      <li><div class="row"><span class="name">Cold brew</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg></span><span class="leader"></span><span class="price">4,50 €</span></div></li>
+    </ul>
+  </section>
+
+  <!-- ============ CAFÉS ESPECIALES ============ -->
+  <section id="especiales" aria-labelledby="h-esp">
+    <div class="sec-title"><span class="d" aria-hidden="true">•••</span><h2 id="h-esp">Cafés especiales</h2><span class="d" aria-hidden="true">•••</span></div>
+
+    <div class="featured">
+      <div><span class="fname">Orange americano</span><span class="fprice">3,50 €</span></div>
+      <div>
+        <span class="fname">Latte Pistacho
+          <span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg><svg class="ic" role="img" aria-label="Disponible caliente"><use href="#ic-hot"/></svg></span>
+        </span>
+        <span class="fprice">4,00 €</span>
+        <span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a><a class="alg" href="#a8" aria-label="Alérgeno: frutos de cáscara">8</a></span>
+      </div>
+    </div>
+
+    <ul class="list">
+      <li><div class="row"><span class="name">Latte Leche Coco</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg><svg class="ic" role="img" aria-label="Disponible caliente"><use href="#ic-hot"/></svg></span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,00 €</span></div></li>
+      <li><div class="row"><span class="name">Latte Caramel Salado</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg><svg class="ic" role="img" aria-label="Disponible caliente"><use href="#ic-hot"/></svg></span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,00 €</span></div></li>
+      <li><div class="row"><span class="name">Latte Jasmine</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg><svg class="ic" role="img" aria-label="Disponible caliente"><use href="#ic-hot"/></svg></span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,00 €</span></div></li>
+      <li><div class="row"><span class="name">Latte Lotus</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg></span><span class="algs"><a class="alg" href="#a1" aria-label="Alérgeno: cereales con gluten">1</a><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,00 €</span></div></li>
+      <li><div class="row"><span class="name">Latte Vainilla</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg></span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,00 €</span></div></li>
+      <li><div class="row"><span class="name">Pumpkin spice latte</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg><svg class="ic" role="img" aria-label="Disponible caliente"><use href="#ic-hot"/></svg></span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,00 €</span></div></li>
+    </ul>
+  </section>
+
+  <!-- ============ MATCHA Y BEBIDAS ============ -->
+  <section id="matcha" aria-labelledby="h-matcha">
+    <div class="sec-title"><span class="d" aria-hidden="true">•••</span><h2 id="h-matcha">Matcha y bebidas</h2><span class="d" aria-hidden="true">•••</span></div>
+
+    <ul class="list">
+      <li><div class="row"><span class="name">Matcha latte</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg><svg class="ic" role="img" aria-label="Disponible caliente"><use href="#ic-hot"/></svg></span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,00 €</span></div></li>
+      <li><div class="row"><span class="name">Iced Matcha Agua Coco</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg></span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,50 €</span></div></li>
+      <li><div class="row"><span class="name">Matcha Lychee</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg></span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,50 €</span></div></li>
+      <li><div class="row"><span class="name">Iced Matcha Mango</span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,50 €</span></div></li>
+      <li><div class="row"><span class="name">Iced Matcha Fresa</span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,50 €</span></div></li>
+      <li><div class="row"><span class="name">Iced Matcha Arándanos</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg></span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,50 €</span></div></li>
+      <li><div class="row"><span class="name">Matcha Lotus</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible caliente"><use href="#ic-hot"/></svg></span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,50 €</span></div></li>
+      <li><div class="row"><span class="name">Matcha Vainilla</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible caliente"><use href="#ic-hot"/></svg></span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">4,50 €</span></div></li>
+      <li><div class="row"><span class="name">Lemon Tea Uva y Jazmín Spritz</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg></span><span class="algs"><a class="alg" href="#a12" aria-label="Alérgeno: sulfitos">12</a></span><span class="leader"></span><span class="price">4,50 €</span></div></li>
+      <li><div class="row"><span class="name">Lychee Spritz</span><span class="temps"><svg class="ic" role="img" aria-label="Disponible frío"><use href="#ic-cold"/></svg></span><span class="algs"><a class="alg" href="#a12" aria-label="Alérgeno: sulfitos">12</a></span><span class="leader"></span><span class="price">4,50 €</span></div></li>
+    </ul>
+  </section>
+
+  <!-- ============ TOSTADAS ============ -->
+  <section id="tostadas" aria-labelledby="h-tost">
+    <div class="sec-title"><span class="d" aria-hidden="true">•••</span><h2 id="h-tost">Tostadas</h2><span class="d" aria-hidden="true">•••</span></div>
+    <p class="sec-sub">Pan de masa madre</p>
+
+    <ul class="list dishes">
+      <li>
+        <div class="row"><span class="name">Salmón</span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a><a class="alg" href="#a4" aria-label="Alérgeno: pescado">4</a><a class="alg" href="#a1" aria-label="Alérgeno: cereales con gluten">1</a></span><span class="price">9,00 €</span></div>
+        <p class="desc">Crema de queso, salmón ahumado, aguacate y semillas.</p>
+      </li>
+      <li>
+        <div class="row"><span class="name">La mediterránea</span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a><a class="alg" href="#a1" aria-label="Alérgeno: cereales con gluten">1</a></span><span class="price">7,50 €</span></div>
+        <p class="desc">Aguacate, burrata, tomate cherry, pesto de albahaca, rúcula, toque limón y AOVE.</p>
+      </li>
+      <li>
+        <div class="row"><span class="name">Queso y miel</span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a><a class="alg" href="#a1" aria-label="Alérgeno: cereales con gluten">1</a></span><span class="price">6,00 €</span></div>
+        <p class="desc">Crema de queso, cebolla caramelizada, nueces, miel y tomillo fresco.</p>
+      </li>
+      <li>
+        <div class="row"><span class="name">Trufa &amp; huevo</span><span class="algs"><a class="alg" href="#a1" aria-label="Alérgeno: cereales con gluten">1</a><a class="alg" href="#a3" aria-label="Alérgeno: huevo">3</a><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="price">7,50 €</span></div>
+        <p class="desc">Crema de queso, champiñón salteados, huevo poché, cebolino, aceite de trufa y parmesano rallado.</p>
+      </li>
+      <li>
+        <div class="row"><span class="name">Ibérica</span><span class="algs"><a class="alg" href="#a1" aria-label="Alérgeno: cereales con gluten">1</a></span><span class="price">8,50 €</span></div>
+        <p class="desc">Jamón ibérico, tomate rallado, sal en escamas y AOVE, mini brotes.</p>
+      </li>
+      <li>
+        <div class="row"><span class="name">Verde</span><span class="algs"><a class="alg" href="#a1" aria-label="Alérgeno: cereales con gluten">1</a></span><span class="price">6,50 €</span></div>
+        <p class="desc">Hummus, aguacate, espinacas baby, semillas y AOVE, mini brotes.</p>
+      </li>
+      <li>
+        <div class="row"><span class="name">Pastrami</span><span class="algs"><a class="alg" href="#a1" aria-label="Alérgeno: cereales con gluten">1</a><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a><a class="alg" href="#a10" aria-label="Alérgeno: mostaza">10</a></span><span class="price">9,50 €</span></div>
+        <p class="desc">Crema de queso, pepinillo laminado, pastrami, rúcula, mostaza y miel, cebolla encurtida.</p>
+      </li>
+      <li>
+        <div class="row"><span class="name">Aguacate</span><span class="algs"><a class="alg" href="#a1" aria-label="Alérgeno: cereales con gluten">1</a><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="price">6,50 €</span></div>
+        <p class="desc">Aguacate, huevo (poché, frito, revuelto), AOVE, sal en escamas.</p>
+      </li>
+    </ul>
+
+    <ul class="list extras">
+      <li><div class="row"><span class="name">Tostadas AOVE / mantequilla</span><span class="algs"><a class="alg" href="#a1" aria-label="Alérgeno: cereales con gluten">1</a><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">3,00 €</span></div></li>
+      <li><div class="row"><span class="name">Tostada tomate + AOVE / mantequilla y mermelada</span><span class="algs"><a class="alg" href="#a1" aria-label="Alérgeno: cereales con gluten">1</a><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">3,50 €</span></div></li>
+    </ul>
+  </section>
+
+  <!-- ============ SUPLEMENTO ============ -->
+  <section id="suplemento" aria-labelledby="h-sup">
+    <div class="sec-title"><span class="d" aria-hidden="true">•••</span><h2 id="h-sup">Suplemento</h2><span class="d" aria-hidden="true">•••</span></div>
+    <div class="boxed">
+      <ul class="list">
+        <li><div class="row"><span class="name">Huevo (poché, frito, revuelto)</span><span class="algs"><a class="alg" href="#a3" aria-label="Alérgeno: huevo">3</a></span><span class="leader"></span><span class="price">1,50 €</span></div></li>
+        <li><div class="row"><span class="name">Jamón ibérico</span><span class="algs"><a class="alg" href="#a1" aria-label="Alérgeno: cereales con gluten">1</a></span><span class="leader"></span><span class="price">3,00 €</span></div></li>
+        <li><div class="row"><span class="name">Salmón</span><span class="algs"><a class="alg" href="#a4" aria-label="Alérgeno: pescado">4</a></span><span class="leader"></span><span class="price">3,00 €</span></div></li>
+        <li><div class="row"><span class="name">Aguacate</span><span class="leader"></span><span class="price">1,50 €</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ OTROS ============ -->
+  <section id="otros" aria-labelledby="h-otros">
+    <div class="sec-title"><span class="d" aria-hidden="true">•••</span><h2 id="h-otros">Otros</h2><span class="d" aria-hidden="true">•••</span></div>
+
+    <ul class="list">
+      <li><div class="row"><span class="name">Zumo de naranja</span><span class="leader"></span><span class="price">3,50 €</span></div></li>
+      <li><div class="row"><span class="name">Agua</span><span class="leader"></span><span class="price">2,50 €</span></div></li>
+      <li><div class="row"><span class="name">Agua con gas</span><span class="leader"></span><span class="price">3,00 €</span></div></li>
+      <li><div class="row"><span class="name">Cola cao</span><span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span><span class="leader"></span><span class="price">3,00 €</span></div></li>
+      <li><div class="row"><span class="name">Cerveza sin alcohol</span><span class="leader"></span><span class="price">3,00 €</span></div></li>
+    </ul>
+
+    <ul class="extras">
+      <li>Extra de sirope: <b>0,30 €</b></li>
+      <li>Extra de café: <b>0,80 €</b></li>
+      <li>Opción con leche vegetal (avena y coco): <b>0,30 €</b> <span class="algs"><a class="alg" href="#a7" aria-label="Alérgeno: leche">7</a></span></li>
+      <li>Matcha grande XL: <b>1,00 €</b></li>
+    </ul>
+  </section>
+
+  <!-- ============ ALÉRGENOS ============ -->
+  <section id="alergenos" aria-labelledby="h-alg">
+    <div class="sec-title"><span class="d" aria-hidden="true">•••</span><h2 id="h-alg">Alérgenos</h2><span class="d" aria-hidden="true">•••</span></div>
+    <p class="sec-sub">Según Reglamento UE 1169/2011</p>
+
+    <ul class="legend">
+      <li id="a1"><span class="alg">1</span> Cereales con gluten</li>
+      <li id="a2"><span class="alg">2</span> Crustáceos</li>
+      <li id="a3"><span class="alg">3</span> Huevo</li>
+      <li id="a4"><span class="alg">4</span> Pescado</li>
+      <li id="a5"><span class="alg">5</span> Cacahuete</li>
+      <li id="a6"><span class="alg">6</span> Soja</li>
+      <li id="a7"><span class="alg">7</span> Leche</li>
+      <li id="a8"><span class="alg">8</span> Frutos de cáscara</li>
+      <li id="a9"><span class="alg">9</span> Apio</li>
+      <li id="a10"><span class="alg">10</span> Mostaza</li>
+      <li id="a11"><span class="alg">11</span> Sésamo</li>
+      <li id="a12"><span class="alg">12</span> Sulfitos</li>
+      <li id="a13"><span class="alg">13</span> Altramuces</li>
+      <li id="a14"><span class="alg">14</span> Moluscos</li>
+    </ul>
+
+    <p class="legal">Si tienes alguna alergia o intolerancia, consulta con nuestro personal antes de realizar tu pedido.</p>
+    <p class="legal">Disponemos de información detallada sobre todos los alérgenos de nuestros productos.</p>
+  </section>
+
+  </main>
+
+  <footer>
+    <span class="flank" aria-hidden="true">• • •</span>
+    <p>
+      <svg class="ic" role="img" aria-label="Frío"><use href="#ic-cold"/></svg> disponible frío
+      &nbsp;·&nbsp;
+      <svg class="ic" role="img" aria-label="Caliente"><use href="#ic-hot"/></svg> disponible caliente
+    </p>
+    <p><a class="alt-link" href="menu-imagen.html">Ver el menú original en imagen</a></p>
+    <p>Molly Coffee</p>
+  </footer>
+
+</div>
+
+<script>
+/* Resalta en la navegación la sección visible. Mejora progresiva:
+   sin JS el menú sigue funcionando como anclas normales. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav a'));
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+
+  var sections = links
+    .map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); })
+    .filter(Boolean);
+
+  if (!('IntersectionObserver' in window) || !sections.length) return;
+
+  var visible = new Set();
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target.id);
+      else visible.delete(e.target.id);
+    });
+    var current = sections.filter(function (s) { return visible.has(s.id); })[0];
+    links.forEach(function (a) { a.removeAttribute('aria-current'); });
+    if (current && byId[current.id]) byId[current.id].setAttribute('aria-current', 'true');
+  }, { rootMargin: '-64px 0px -70% 0px' });
+
+  sections.forEach(function (s) { obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>
