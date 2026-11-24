@@ -13,7 +13,8 @@ menu.html         el menú en texto, con los alérgenos enlazados
 cartel-qr.html    cartel A5 imprimible (el QR apunta a /)
 menu-imagen.html  redirección a / (dirección antigua)
 v2/index.html     redirección a / (dirección antigua)
-assets/           imagen del menú (JPEG), PDF original, el QR y los iconos
+assets/           imágenes de la carta (bebidas y comida, JPEG), PDF con las
+                  dos cartas, el QR y los iconos
 favicon.ico       icono de la pestaña (también assets/favicon-32.png,
                   apple-touch-icon.png, icon-192/512.png y site.webmanifest)
 ```
